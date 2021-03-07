@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<script type="text/javascript">
+		function checkStrength(){
+			var strength=document.getElementById("strength");
+			var psw1=document.getElementById("psw1").value;
+			var length=psw1.length;
+			if(length>=1&&length<3)
+			{
+				strength.innerHTML="弱";
+			}
+			else if(length>=3&&length<6)
+			{
+				strength.innerHTML="中";
+			}
+			else
+			{
+				strength.innerHTML="强";
+			}
+		}
+		function checkPSW()
+		{
+			var psw1=document.getElementById("psw1").value;
+			var psw2=document.getElementById("psw2").value;
+			var pswInfo=document.getElementById("pswInfo");
+			if(psw1!=psw2){
+				pswInfo.innerHTML='两次输入的密码必须一致';
+			}
+		}	
+    		function reg(){
+			var username=document.getElementById("username").value;
+			var email=document.getElementById("email").value;
+			var sno=document.getElementById("sno").value;
+			if(document.getElementById("username").checkValidity()&&document.getElementById("psw1").checkValidity()&&document.getElementById("psw2").checkValidity()
+			&&document.getElementById("email").checkValidity()&&document.getElementById("sno").checkValidity())
+			{
+				alert
+				(
+				'确认注册信息\n'+
+				'用户名\n'+
+				'学号\n'+
+				'邮箱地址\n'
+				)
+			}
+		}
+</script>
+<form action="" method="post">
+	<fieldset id="">
+		<legend>校园网注册页面</legend>
+		<center>
+			<div id="" style="padding:5px;width: 600px;">
+				<h4>用户信息</h4>
+				<table width="100%" border="0" cellspacing="" cellpadding="">
+					<tr>
+						<td width="20%">用户名</td>
+						<td width="40%"><input type="text" name="name" id="username" value="" autofocus="true" required="true" pattern="^[a-zA-Z0-9]{6,}$" /></td>
+						<td width="40%"><font size="" color="red">*</font></td>
+					</tr>
+					<tr>
+						<td width="20%">学号</td>
+						<td width="40%"><input type="number" name="sno" id="sno" value="" required="true" /></td>
+						<td width="40%"><font size="" color="red">*</font></td>
+					</tr>
+					
+					<tr>
+						<td width="20%">邮箱</td>
+						<td width="40%"><input type="email" name="" id="email" value="" required="true" /></td>
+						<td width="40%"><font size="" color="red">*</font></td>
+					</tr>
+					<tr>
+						<td width="20%">密码</td>
+						<td width="40%"><input type="password" name="" id="psw1" value="" required="true" onkeyup="checkStrength"/></td>
+						<td width="40%"><font size="" color="red">*</font><span id="strength">
+							
+						</span></td>
+					</tr>
+					<tr>
+						<td width="20%">确认密码</td>
+						<td width="40%"><input type="password" name="" id="psw2" value="" required="true" onblur="checkPSW()"/></td>
+						<td width="40%"><font size="" color="red">*</font> <span id="pswInfo">
+							
+						</span></td>
+					</tr>
+         
+				</table>
+
+			</div>
+
+      <div>
+        <tr>
+          <td ><input type="submit" name="" id="" value="注册新用户" onclick="reg()" /></td>
+          <td ><input type="reset" name="" id="" value="重置" /></td> 
+        </tr>
+      </div>
+		
+		</center>
+		
+	</fieldset>
+</form>
+</html>
