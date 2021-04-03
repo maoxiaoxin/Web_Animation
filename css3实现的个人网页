@@ -1,1 +1,206 @@
 
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		
+		* {
+		  box-sizing: border-box;
+		}
+		
+		.row::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+		
+		[class*="col-"] {
+		  float: left;
+		  padding: 15px;
+		}
+		
+		.col-1 {width: 8.33%;}
+		.col-2 {width: 16.66%;}
+		.col-3 {width: 25%;}
+		.col-4 {width: 33.33%;}
+		.col-5 {width: 41.66%;}
+		.col-6 {width: 50%;}
+		.col-7 {width: 58.33%;}
+		.col-8 {width: 66.66%;}
+		.col-9 {width: 75%;}
+		.col-10 {width: 83.33%;}
+		.col-11 {width: 91.66%;}
+		.col-12 {width: 100%;}
+		
+		html {
+		  font-family: "Lucida Sans", sans-serif;
+		}
+		
+		.header {
+		  background-color: #9933cc;
+		  color: #ffffff;
+		  padding: 15px;
+		}
+		
+		.menu ul {
+		  list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		}
+		
+		.menu li {
+			
+			width: 100px;
+			height: 50px;
+		  padding: 8px;
+		  margin-bottom: 7px;
+		  background-color: #33b5e5;
+		  color: #ffffff;
+		  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		}
+		
+		.menu li:hover {
+		  background-color: pink;
+		}
+		/* div */
+		.text {
+			column-count: 3;
+			column-width: 100px;
+			column-gap: 40px;
+			column-rule-style: 1px;
+			column-rule-width: 1px;
+			column-rule-color: lightblue;
+		}
+		
+		.content {
+			position: absolute;
+			top: 200px;
+			left: 300px;
+			height: 500px;
+			width: 1000px;
+		}
+		
+		.left {
+			position: absolute;
+			left: 410px;
+			top: 10px;
+			padding: 10px;
+		}
+		.midform {
+			position: absolute;
+			left: 510px;
+			top: 10px;
+			padding: 10px;
+		}
+		.right {
+			position: absolute;
+			left: 610px ;
+			top: 10px;
+			padding: 10px;
+		}
+		
+		
+		.myDiv:hover {
+			background: #03e9f4;
+			color: #050801;
+			animation-name: example;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			box-shadow: 0 0 5px #03e9f4,
+			            0 0 25px #03e9f4,
+			            0 0 50px #03e9f4,
+			            0 0 200px #03e9f4;
+		}
+		.myDiv p{
+			text-align: center;
+		}
+		.myDiv {
+			
+			width: 100px;
+			height: 100px;
+			
+		}
+		
+		@keyframes example {
+		  0%   {background-color: linear-gradient(180deg,transparent,#03e9f4); transform: rotate(0deg) }
+		  100% {background-color:linear-gradient(180deg,transparent,#03e9f4); transform: rotate(360deg)}
+		}
+		
+		#Radiu{
+			border-radius: 25px;
+		}
+		body {
+			width: auto;
+			height: auto;
+			background-image: url(C:/Users/MXX/Desktop/WallPaper/wall.png);
+		}
+		
+		/*鼠标点击文字提示*/
+		.tooltip {
+		  position: relative;
+		  display: inline-block;
+		  
+		}
+		
+		.tooltip .tooltiptext {
+		  visibility: hidden;
+		  width: 120px;
+		  background-color: black;
+		  color: #fff;
+		  text-align: center;
+		  border-radius: 6px;
+		  padding: 5px 0;
+		  
+		  /* 定位工具提示 */
+		  position: absolute;
+		  z-index: 1;
+		  top: -5px;
+		  left: 110%;
+		 
+		}
+		.tooltip .tooltiptext::after {
+		  content: "";
+		  position: absolute;
+		  top: 50%;
+		  right: 100%;
+		  margin-top: -5px;
+		  border-width: 5px;
+		  border-style: solid;
+		  border-color: transparent black transparent transparent;
+		}
+		
+		.tooltip:hover .tooltiptext {
+		  visibility: visible;
+		}
+	
+	</style>
+	<body>
+		<div id="" class="content">
+			<h3>Daily Check</h3>
+			<div id="Radiu" class="myDiv  left ">
+				<p>Today</p>	
+			</div>
+			<div id="Radiu" class="myDiv midform ">
+				<p>Tom</p>
+			</div>
+			<div id="Radiu" class="myDiv right">
+				<p>Yes</p>
+			</div>
+					
+			<div id="" class="col-11 menu">
+				<ul>
+					<li class="tooltip">Ball
+						<span class="tooltiptext">Do something!</span></li>
+					<li >Running</li>
+					<li>EN</li>
+					<li>Math</li>
+					<li>code</li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+</html>
