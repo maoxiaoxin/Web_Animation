@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>register</title>
+		<link rel="stylesheet" type="text/css" href="../CODE/Bili/layui-v2.6.7/layui/css/layui.css"/>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				font-family: sans-serif;
+				background-color: #34495e;
+			}
+			.box{
+				width: 300px;
+				padding: 40px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				background: #191919;
+				text-align: center;
+			}
+			.box h1{
+				color: white;
+				text-transform: uppercase;
+				font-weight: 500;
+			}
+			.box input[type= "text"], .box input[type = "password"]{
+				border: 0;
+				background: none;
+				display: block;
+				margin: 20px auto;
+				text-align: center;
+				border: 2px solid #3498db;
+				padding: 14px 10px;
+				width: 200px;
+				outline: none;
+				color: white;
+				border-radius: 24px;
+				transition: 0.25s;
+			}
+			.box input[type = "text"]:focus, .box input[type = "password"]:focus{
+				width: 280px;
+				border-color: #2ecc71;
+			}
+			.box input[type = "button"]{
+				border: 0;
+				background: none;
+				display: block;
+				margin: 20px auto;
+				text-align: center;
+				border: 2px solid #2ecc71;
+				padding: 14px 40px;
+				outline: none;
+				color: white;
+				border-radius: 24px;
+				transition: 0.25s;
+				cursor: pointer;
+			}
+			.box input[type = "button"]:hover{
+				background: #2ECC71;
+			}
+			
+			.imsg {
+				font-size: 10px;
+				color: rgba(143,134,134,0.61);
+			}
+		</style>
+		
+	</head>
+	<body>
+		<ul class="layui-nav">
+		  <li class="layui-nav-item">
+		    <a href="register.html">注册</a>
+		  </li>
+		  <li class="layui-nav-item">
+		    <a href="login.html">登录</a>
+		  </li>
+		  <li class="layui-nav-item">
+		    <a href="index.html">退出</a>
+		  </li>
+		</ul>
+		<form  class="box" id="log" action="" method="post">
+			<h1>RES</h1>
+			<input type="text" name="username" id="res_name" value="" placeholder="Username" /> 
+			<input type="password" name="password" id="res_word" value="" placeholder="Password"/>
+			<input type="password" name="password" id="repassword" value="" placeholder="Confirm pwd"/>
+			<input type="button" id="res-button"  value="res" />
+		</form>
+		
+	</body>
+	<script type="text/javascript" src="../CODE/Bili/js/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+		
+		        $("#res-button").click(function(){
+		            $.ajax({
+		                type: "post",
+		                url: "register.php",
+		                data: {
+		                    username: document.querySelector('#res_name').value,
+		                    password: document.querySelector('#res_word').value,
+							repassword:document.querySelector('#repassword').value,
+		                },
+		                success: function(result){
+						var data = JSON.parse(result);
+							//alert(data['code']);
+							console.log(data['message']);
+							
+							if(data['code']=='8'){
+								alert(data['message']);
+								window.location.href="login.html";
+							}else if(data['code']=='1'){
+								alert(data['message']);
+							}else if(data['code']=='2'){
+								alert(data['message']);
+							}else if(data['code']=='3'){
+								alert(data['message']);
+							}else if(data['code']=='9'){
+								alert(data['message']);
+							}
+		                },
+		                error: function(msg){
+		                    console.log(msg);
+		                }
+		    
+		            })
+		        })
+		
+	</script>
+</html>
